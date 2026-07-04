@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BryStore - Premium Digital Hub</title>
+  
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Library QR Code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Link ke File CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-container">
+  
+  <header class="header no-print" id="main-header" style="display: none;">
+    <h1><i class="fas fa-store"></i> BryStore</h1>
+    <div class="header-actions">
+      <button class="dark-mode-toggle" id="dark-toggle" title="Night Mode"><i class="fas fa-moon"></i></button>
+      <img src="https://ui-avatars.com/api/?name=Admin&background=0d9488&color=fff" alt="Avatar" class="user-avatar" id="user-avatar-img">
+      <button id="btn-logout" title="Keluar"><i class="fas fa-power-off"></i></button>
+    </div>
+  </header>
+
+  <!-- SCREEN LOGIN -->
+  <main id="screen-login" class="screen p-4 active" style="background: var(--light);">
+    <div style="display: flex; flex-direction: column; justify-content: center; min-height: 90vh;">
+      <img src="https://images.unsplash.com/photo-1674027392887-751d6396b710?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Belanja Online" class="login-hero-img">
+      <div class="text-center mb-4">
+        <h2 class="font-bold" style="font-size: 1.8rem; color: var(--primary);"><i class="fas fa-store"></i> BryStore</h2>
+        <p class="text-muted" style="margin-top: 4px;">Penuhi Kebutuhan Digitalmu di Sini</p>
+      </div>
+      <div class="card" style="box-shadow: var(--shadow-md); border: none;">
+        <h3 class="font-bold mb-4 text-center" style="font-size: 1.1rem;">Masuk ke Akun</h3>
+        <div class="form-group"><label class="form-label">No. Handphone / Username</label><input type="text" id="login-id" class="form-control" placeholder="Contoh: admin" value="admin"></div>
+        <div class="form-group"><label class="form-label">PIN / Password</label><input type="password" id="login-pin" class="form-control" placeholder="Masukkan PIN" value="123456"></div>
+        <button id="btn-do-login" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Mulai Belanja</button>
+        <div style="background: var(--bg-input); padding: 10px; border-radius: 8px; margin-top: 20px; text-align: center;">
+          <p class="text-muted" style="font-size: 0.75rem; margin:0;"><i class="fas fa-info-circle"></i> Gunakan <b>admin</b> & PIN <b>123456</b></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SCREEN DASHBOARD -->
+  <main id="screen-dashboard" class="screen p-4">
+    <div class="balance-card">
+      <p style="font-size: 0.85rem; opacity: 0.9;">Saldo Utama BryStore</p>
+      <div class="amount" id="dash-balance">Rp 0</div>
+      <div class="flex-between">
+        <span style="font-size: 0.75rem; background: rgba(0,0,0,0.2); padding: 4px 10px; border-radius: 12px;"><i class="fas fa-check-circle"></i> Member Aktif</span>
+        <button onclick="navToTopup()" class="btn-topup-sm"><i class="fas fa-wallet"></i> Isi Saldo</button>
+      </div>
+    </div>
+
+    <h3 class="font-bold mb-4" style="font-size: 1.1rem;">Penawaran Spesial 🔥</h3>
+    <div class="promo-container mb-4">
+      <div class="promo-card" style="background-image: url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=600');"><div class="promo-info"><h4>Mega Diskon PLN</h4><p>Potongan s/d 20%</p></div></div>
+      <div class="promo-card" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=600');"><div class="promo-info"><h4>Cashback Internet</h4><p>Bebas biaya admin</p></div></div>
+    </div>
+
+    <h3 class="font-bold">Layanan Tagihan</h3>
+    <div class="menu-grid">
+      <div class="menu-item" onclick="navToTagihan('PLN')"><div class="menu-icon"><i class="fas fa-lightbulb"></i></div><span class="menu-text">Listrik PLN</span></div>
+      <div class="menu-item" onclick="navToTagihan('PDAM')"><div class="menu-icon"><i class="fas fa-faucet-drip"></i></div><span class="menu-text">Air PDAM</span></div>
+      <div class="menu-item" onclick="navToTagihan('Internet')"><div class="menu-icon"><i class="fas fa-wifi"></i></div><span class="menu-text">Internet</span></div>
+      <div class="menu-item" onclick="navToTagihan('Seminar')"><div class="menu-icon"><i class="fas fa-ticket-alt"></i></div><span class="menu-text">Seminar</span></div>
+    </div>
+
+    <h3 class="font-bold">Layanan Mahasiswa & Data</h3>
+    <div class="menu-grid">
+      <div class="menu-item" onclick="navToSpp()"><div class="menu-icon" style="color: var(--secondary);"><i class="fas fa-graduation-cap"></i></div><span class="menu-text">Biaya SPP</span></div>
+      <div class="menu-item" onclick="navToPulsa()"><div class="menu-icon" style="color: var(--danger);"><i class="fas fa-mobile-screen"></i></div><span class="menu-text">Pulsa & Data</span></div>
+    </div>
+
+    <!-- Pusat Bantuan -->
+    <h3 class="font-bold mt-4 mb-4">Pusat Bantuan 💡</h3>
+    <div class="guide-box">
+      <div class="guide-header" onclick="this.parentElement.classList.toggle('open')"><span><i class="fas fa-graduation-cap text-primary" style="margin-right:8px;"></i> Cara Membayar SPP</span><i class="fas fa-chevron-down"></i></div>
+      <div class="guide-content">Pilih menu <b>Biaya SPP</b>, masukkan NIM valid, centang cicilan, saldo terpotong otomatis.</div>
+    </div>
+    <div class="guide-box">
+      <div class="guide-header" onclick="this.parentElement.classList.toggle('open')"><span><i class="fas fa-wallet text-primary" style="margin-right:8px;"></i> Tentang Potong Saldo</span><i class="fas fa-chevron-down"></i></div>
+      <div class="guide-content">Pilih metode <b>"Saldo BryStore"</b> saat checkout. Pastikan saldo cukup.</div>
+    </div>
+  </main>
+
+  <!-- SCREEN TOP UP -->
+  <main id="screen-topup" class="screen p-4">
+    <div class="flex-between mb-4"><h2 class="font-bold"><i class="fas fa-wallet text-primary"></i> Isi Saldo</h2><button class="btn btn-outline" style="width:auto; padding: 8px 16px; font-size:0.8rem; border-radius: 20px;" onclick="switchScreen('screen-dashboard')">Batal</button></div>
+    <div class="card border-0">
+      <label class="form-label">Pilih Nominal Isi Saldo</label>
+      <div class="nominal-grid mb-4" id="topup-nominals">
+        <div class="nom-btn active" data-val="50000">Rp 50.000</div><div class="nom-btn" data-val="100000">Rp 100.000</div><div class="nom-btn" data-val="250000">Rp 250.000</div>
+        <div class="nom-btn" data-val="500000">Rp 500.000</div><div class="nom-btn" data-val="1000000">Rp 1.000.000</div><div class="nom-btn" data-val="custom">Nominal Lain</div>
+      </div>
+      <input type="number" id="input-topup-custom" class="form-control mb-4" placeholder="Ketik nominal..." style="display:none;">
+      <label class="form-label mt-4">Pilih Jalur Pembayaran</label>
+      <div class="payment-methods" id="pm-topup">
+        <label class="pm-item selected"><input type="radio" name="val_pm_topup" value="VA" checked> <i class="fas fa-building-columns text-primary" style="font-size: 1.2rem;"></i> Transfer Virtual Account</label>
+        <label class="pm-item"><input type="radio" name="val_pm_topup" value="QRIS"> <i class="fas fa-qrcode text-primary" style="font-size: 1.2rem;"></i> Scan QRIS Cepat</label>
+        <label class="pm-item"><input type="radio" name="val_pm_topup" value="Teller"> <i class="fas fa-store text-primary" style="font-size: 1.2rem;"></i> Bayar di Minimarket</label>
+      </div>
+      <button id="btn-do-topup" class="btn btn-primary mt-4">Lanjutkan Top Up</button>
+    </div>
+  </main>
+
+  <!-- SCREEN TAGIHAN -->
+  <main id="screen-tagihan" class="screen p-4">
+    <div class="flex-between mb-4"><h2 class="font-bold" id="title-tagihan">Bayar Tagihan</h2><button class="btn btn-outline" style="width:auto; padding: 8px 16px; font-size:0.8rem; border-radius: 20px;" onclick="switchScreen('screen-dashboard')">Kembali</button></div>
+    <div class="card">
+      <div class="form-group"><label class="form-label" id="label-tagihan-input">Nomor Pelanggan</label><input type="text" id="input-tagihan-id" class="form-control" placeholder="Masukkan Nomor"><div class="error-msg" id="err-tagihan">Format nomor salah.</div></div>
+      <button id="btn-cek-tagihan" class="btn btn-primary"><i class="fas fa-search"></i> Cek Tagihan</button>
+      <div class="loader" id="load-tagihan"><div class="spinner"></div><span class="text-muted font-bold">Mencari data...</span></div>
+      <div id="result-tagihan" style="display: none;">
+        <div class="card mt-4" style="background: var(--info-bg); border: 1px dashed var(--primary);">
+          <div class="info-block"><span class="label">Atas Nama</span><span class="value" id="res-tagihan-nama">-</span></div>
+          <div class="info-block"><span class="label">Detail</span><span class="value" id="res-tagihan-detail">-</span></div>
+          <div class="mt-4 pt-2" style="border-top: 1px solid var(--primary);"><span class="text-muted">Total Bayar</span><span class="font-bold text-primary" style="font-size:1.1rem;" id="res-tagihan-total">-</span></div>
+        </div>
+        <h4 class="font-bold mt-4 mb-2">Sumber Dana</h4>
+        <div class="payment-methods" id="pm-tagihan">
+          <label class="pm-item selected"><input type="radio" name="val_pm_tagihan" value="Saldo" checked> <i class="fas fa-wallet text-primary"></i> Saldo BryStore</label>
+          <label class="pm-item"><input type="radio" name="val_pm_tagihan" value="VA"> <i class="fas fa-building-columns text-primary"></i> Transfer VA Bank</label>
+          <label class="pm-item"><input type="radio" name="val_pm_tagihan" value="QRIS"> <i class="fas fa-qrcode text-primary"></i> Scan QRIS</label>
+        </div>
+        <button id="btn-bayar-tagihan" class="btn btn-primary mt-4"><i class="fas fa-check-circle"></i> Bayar Tagihan</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- SCREEN SPP -->
+  <main id="screen-spp" class="screen p-4">
+    <div class="flex-between mb-4"><h2 class="font-bold"><i class="fas fa-graduation-cap text-primary"></i> Biaya Kuliah (SPP)</h2><button class="btn btn-outline" style="width:auto; padding: 8px 16px; font-size:0.8rem; border-radius: 20px;" onclick="switchScreen('screen-dashboard')">Kembali</button></div>
+    <div class="card">
+      <div class="form-group"><label class="form-label">Nomor Induk Mahasiswa (NIM)</label><input type="number" id="input-spp-nim" class="form-control" placeholder="Contoh: 202310001234"><div class="error-msg" id="err-spp">NIM harus 12 digit.</div></div>
+      <button id="btn-cek-spp" class="btn btn-primary"><i class="fas fa-search"></i> Cari Data Mahasiswa</button>
+      <div class="loader" id="load-spp"><div class="spinner"></div><span class="text-muted font-bold">Sinkronisasi data kampus...</span></div>
+      <div id="result-spp" style="display: none;">
+        <div class="card mt-4" style="background: var(--info-bg); border: 1px dashed var(--primary);">
+          <div class="info-block"><span class="label">Nama Mahasiswa</span><span class="value" id="res-spp-nama">-</span></div>
+          <div class="info-block"><span class="label">NIM</span><span class="value" id="res-spp-nimval">-</span></div>
+        </div>
+        <h4 class="font-bold mt-4">Pilih Cicilan</h4>
+        <div id="spp-list-container" class="spp-list"></div>
+        <div class="flex-between mt-4 mb-4 pt-4" style="border-top: 2px dashed var(--border-light);"><span class="font-bold text-muted">Total Bayar:</span><span class="font-bold text-primary" style="font-size: 1.2rem;" id="res-spp-total">Rp 0</span></div>
+        <h4 class="font-bold mt-4">Sumber Dana</h4>
+        <div class="payment-methods" id="pm-spp">
+          <label class="pm-item selected"><input type="radio" name="val_pm_spp" value="Saldo" checked> <i class="fas fa-wallet text-primary"></i> Saldo BryStore</label>
+          <label class="pm-item"><input type="radio" name="val_pm_spp" value="VA"> <i class="fas fa-building-columns text-primary"></i> Transfer VA Bank</label>
+        </div>
+        <button id="btn-bayar-spp" class="btn btn-primary mt-4" disabled><i class="fas fa-check-circle"></i> Bayar SPP Terpilih</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- SCREEN PULSA -->
+  <main id="screen-pulsa" class="screen p-4">
+    <div class="flex-between mb-4"><h2 class="font-bold"><i class="fas fa-mobile-screen text-primary"></i> Isi Pulsa & Paket</h2><button class="btn btn-outline" style="width:auto; padding: 8px 16px; font-size:0.8rem; border-radius: 20px;" onclick="switchScreen('screen-dashboard')">Kembali</button></div>
+    <div class="card">
+      <div class="form-group"><label class="form-label">Nomor Handphone Tujuan</label><input type="tel" id="input-pulsa-hp" class="form-control" placeholder="08xxxxxxxxxx"><div class="error-msg" id="err-pulsa">Format salah (08...)</div></div>
+      <div id="provider-info" style="display: none; align-items: center; gap: 8px; margin-bottom: 16px; font-weight: 800; color: var(--primary); background: var(--primary-light); padding: 12px; border-radius: 12px;"><i class="fas fa-check-circle"></i> Provider: <span id="provider-name">-</span></div>
+      <h4 class="font-bold mt-4">Pilih Nominal Pulsa</h4>
+      <div class="nominal-grid" id="pulsa-nominals">
+        <div class="nom-btn active" data-val="10000">Rp 10.000</div><div class="nom-btn" data-val="25000">Rp 25.000</div><div class="nom-btn" data-val="50000">Rp 50.000</div>
+        <div class="nom-btn" data-val="100000">Rp 100.000</div><div class="nom-btn" data-val="200000">Rp 200.000</div><div class="nom-btn" data-val="custom">Nominal Lain</div>
+      </div>
+      <input type="number" id="input-pulsa-custom" class="form-control mt-4" placeholder="Ketik Nominal (Min Rp 5.000)" style="display:none;">
+      <h4 class="font-bold mt-4">Sumber Dana</h4>
+      <select id="pm-pulsa-select" class="form-control mt-2 mb-4" style="font-weight: 700;">
+        <option value="Saldo">Potong Saldo BryStore</option>
+        <option value="VA">Transfer Virtual Account</option>
+      </select>
+      <button id="btn-bayar-pulsa" class="btn btn-primary mt-4"><i class="fas fa-bolt"></i> Beli Pulsa Sekarang</button>
+    </div>
+  </main>
+
+  <!-- SCREEN RIWAYAT -->
+  <main id="screen-riwayat" class="screen p-4">
+    <div class="flex-between mb-4"><h2 class="font-bold">Histori Transaksi</h2><button id="btn-clear-history" class="btn btn-outline" style="width: auto; padding: 6px 16px; font-size: 0.8rem; border-radius: 20px;"><i class="fas fa-trash-alt"></i> Bersihkan</button></div>
+    <select id="filter-riwayat" class="form-control mb-4" style="font-weight: 700;">
+      <option value="all">Semua Kategori</option><option value="Top Up">Top Up Saldo</option><option value="PLN">Tagihan PLN</option><option value="PDAM">Tagihan PDAM</option>
+      <option value="Internet">Tagihan Internet</option><option value="SPP">Pembayaran SPP</option><option value="Pulsa">Pembelian Pulsa</option>
+    </select>
+    <div class="card" style="padding: 0; overflow-x: auto; border: none;">
+      <table class="history-table"><thead><tr><th>Waktu</th><th>Layanan & Detail</th><th>Nominal</th><th>Status</th></tr></thead><tbody id="history-tbody"></tbody></table>
+    </div>
+  </main>
+
+  <nav class="bottom-nav no-print" id="main-nav" style="display: none;">
+    <div class="nav-item active" data-target="screen-dashboard"><i class="fas fa-house"></i>Home</div>
+    <div class="nav-item" data-target="screen-riwayat"><i class="fas fa-clock-rotate-left"></i>Riwayat</div>
+  </nav>
+
+  <div id="toast-container" class="toast-container no-print"></div>
+
+  <!-- MODAL PEMBAYARAN -->
+  <div class="modal-overlay no-print" id="modal-payment">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal" onclick="closeModal()"></i>
+      <h3 class="font-bold mb-4" id="modal-title">Selesaikan Pembayaran</h3>
+      <div id="modal-instruction">
+        <p class="text-muted mb-4">Silakan selesaikan instruksi pembayaran.</p>
+        <div id="qrcode-box"></div>
+        <div id="instruction-text" class="card" style="background: var(--info-bg); border: 1px dashed var(--primary);">-</div>
+        <p class="font-bold mb-4" id="countdown-timer" style="color: var(--danger);"></p>
+        <button id="btn-konfirmasi-bayar" class="btn btn-primary"><i class="fas fa-spinner fa-spin" style="display:none;" id="spin-bayar"></i> Konfirmasi Pembayaran</button>
+      </div>
+      <div id="modal-receipt" style="display: none; text-align: left;">
+        <div class="text-center mb-4"><i class="fas fa-circle-check" style="font-size: 3.5rem; color: var(--primary);"></i><h3 class="font-bold mt-2">Transaksi Sukses!</h3></div>
+        <div class="card" style="font-size: 0.85rem; border: 1px dashed var(--border-light); background: var(--bg-card);" id="receipt-content"></div>
+        <button onclick="window.print()" class="btn btn-outline mt-4 no-print"><i class="fas fa-print"></i> Cetak/Simpan Struk</button>
+        <button onclick="closeModal(); resetForms();" class="btn btn-primary mt-4 no-print">Selesai & Kembali</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Link ke File JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
