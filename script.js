@@ -5,8 +5,8 @@ const db = {
   Internet: {"192837465012":{nama:"IndiHome 30Mbps",detail:"Bulan Berjalan",pokok:315000,denda:0},"123123123123":{nama:"Biznet Home",detail:"Bulan Berjalan",pokok:350000,denda:0}},
   Seminar: {"SEM-WEB-001":{nama:"Webinar Web Dev",detail:"Tiket Reguler",pokok:75000,denda:0},"SEM-AI-002":{nama:"AI Conference",detail:"Tiket VIP",pokok:250000,denda:0}},
   SPP: {
-    "202310001234":{nama:"Andi Pratama",prodi:"Teknik Informatika",tagihan:[{id:"C1",desc:"SPP Sem Ganjil - Cicil 1",amount:1500000,lunas:true},{id:"C2",desc:"SPP Sem Ganjil - Cicil 2",amount:1500000,lunas:false},{id:"C3",desc:"SPP Sem Ganjil - Cicil 3",amount:1500000,lunas:false},{id:"C4",desc:"SPP Sem Ganjil - Cicil 4",amount:1500000,lunas:false}]},
-    "202310002233":{nama:"Bunga Citra",prodi:"Sistem Informasi",tagihan:[{id:"C1",desc:"SPP Sem Ganjil - Cicil 1",amount:1200000,lunas:false},{id:"C2",desc:"SPP Sem Ganjil - Cicil 2",amount:1200000,lunas:false},{id:"C3",desc:"SPP Sem Ganjil - Cicil 3",amount:1200000,lunas:false},{id:"C4",desc:"SPP Sem Ganjil - Cicil 4",amount:1200000,lunas:false}]}
+    "221011450504":{nama:"Bryan Pratama",prodi:"Teknik Informatika",tagihan:[{id:"C1",desc:"SPP Sem Ganjil - Cicil 1",amount:1500000,lunas:true},{id:"C2",desc:"SPP Sem Ganjil - Cicil 2",amount:1500000,lunas:false},{id:"C3",desc:"SPP Sem Ganjil - Cicil 3",amount:1500000,lunas:false},{id:"C4",desc:"SPP Sem Ganjil - Cicil 4",amount:1500000,lunas:false}]},
+    "221011450505":{nama:"Bunga Citra",prodi:"Sistem Informasi",tagihan:[{id:"C1",desc:"SPP Sem Ganjil - Cicil 1",amount:1200000,lunas:false},{id:"C2",desc:"SPP Sem Ganjil - Cicil 2",amount:1200000,lunas:false},{id:"C3",desc:"SPP Sem Ganjil - Cicil 3",amount:1200000,lunas:false},{id:"C4",desc:"SPP Sem Ganjil - Cicil 4",amount:1200000,lunas:false}]}
   },
   Provider: [
     {prefix:['0811','0812','0813','0821','0822','0823','0852','0853'],name:'Telkomsel'},
