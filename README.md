@@ -71,20 +71,20 @@ Aplikasi ini dilengkapi dengan berbagai fitur simulasi yang berfungsi secara int
 ## 📱 Screenshot Tampilan (Mobile)
 
 <div align="center">
-  <img src="HALAMAN LOGIN.jpg" alt="Halaman Login" width="200"/>
-  <img src="HALAMAN DASHBOARD.jpg" alt="Halaman Dashboard" width="200"/>
-  <img src="HALAMAN TOP UP SALDO.jpg" alt="Halaman Top Up Saldo" width="200"/>
-  <img src="HALAMAN BAYAR SPP.jpg" alt="Halaman Bayar SPP" width="200"/>
-  <img src="HALAMAN ISI PULSA.jpg" alt="Halaman Isi Pulsa" width="200"/>
-  <img src="HALAMAN TAGIHAN LISTRIK.jpg" alt="Halaman Tagihan Listrik" width="200"/>
-  <img src="HALAMAN TAGIHAN PDAM.jpg" alt="Halaman Tagihan PDAM" width="200"/>
-  <img src="HALAMAN TAGIHAN INTERNET.jpg" alt="Halaman Tagihan Internet" width="200"/>
-  <img src="HALAMAN TAGIHAN SEMINAR.jpg" alt="Halaman Tagihan Seminar" width="200"/>
-  <img src="PEMBAYARAN MELALUI QRIS.jpg" alt="Pembayaran Melalui QRIS" width="200"/>
-  <img src="PEMBAYARAN MELALUI SALDO APPS.jpg" alt="Pembayaran Melalui Saldo Apps" width="200"/>
-  <img src="PEMBAYARAN MELALUI VA BANK.jpg" alt="Pembayaran Melalui VA Bank" width="200"/>
-  <img src="HALAMAN TRANSAKSI SUKSES.jpg" alt="Halaman Transaksi Sukses" width="200"/>
-  <img src="HALAMAN HISTORI TRANSAKSI.jpg" alt="Halaman Histori Transaksi" width="200"/>
+  <img src="HALAMAN_LOGIN.jpg" alt="Halaman Login" width="200"/>
+  <img src="HALAMAN_DASHBOARD.jpg" alt="Halaman Dashboard" width="200"/>
+  <img src="HALAMAN_TOP_UP_SALDO.jpg" alt="Halaman Top Up Saldo" width="200"/>
+  <img src="HALAMAN_BAYAR_SPP.jpg" alt="Halaman Bayar SPP" width="200"/>
+  <img src="HALAMAN_ISI_PULSA.jpg" alt="Halaman Isi Pulsa" width="200"/>
+  <img src="HALAMAN_TAGIHAN_LISTRIK.jpg" alt="Halaman Tagihan Listrik" width="200"/>
+  <img src="HALAMAN_TAGIHAN_PDAM.jpg" alt="Halaman Tagihan PDAM" width="200"/>
+  <img src="HALAMAN_TAGIHAN_INTERNET.jpg" alt="Halaman Tagihan Internet" width="200"/>
+  <img src="HALAMAN_TAGIHAN_SEMINAR.jpg" alt="Halaman Tagihan Seminar" width="200"/>
+  <img src="PEMBAYARAN_MELALUI_QRIS.jpg" alt="Pembayaran Melalui QRIS" width="200"/>
+  <img src="PEMBAYARAN_MELALUI_SALDO_APPS.jpg" alt="Pembayaran Melalui Saldo Apps" width="200"/>
+  <img src="PEMBAYARAN_MELALUI_VA_BANK.jpg" alt="Pembayaran Melalui VA Bank" width="200"/>
+  <img src="HALAMAN_TRANSAKSI_SUKSES.jpg" alt="Halaman Transaksi Sukses" width="200"/>
+  <img src="HALAMAN_HISTORI_TRANSAKSI.jpg" alt="Halaman Histori Transaksi" width="200"/>
 </div>
 
 ---
